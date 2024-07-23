@@ -1,0 +1,220 @@
+Q1 - What is Inheritance in java ?
+ANS - Inheritance in Java is a fundamental concept of Object-Oriented Programming (OOP) that allows you to create new classes based on existing ones. Here are the key points about inheritance in Java:
+
+Parent-Child Relationship: It establishes an "is-a" relationship between classes. A subclass (or child class) inherits the properties and methods of its parent class (or superclass).
+
+Code Reusability: By inheriting from existing classes, you can avoid duplicating code. You can reuse the functionalities defined in the parent class and extend them in the subclass.
+
+Extending Functionality: Subclasses can add new methods and fields to specialize the behavior inherited from the parent class. This allows for creating more specific classes from general ones.
+
+Polymorphism: Inheritance allows for polymorphism, meaning objects of different subclasses can be treated as objects of their common parent class. This enables flexible and dynamic behavior in your programs.
+
+Access Modifiers: The access level of inherited members (fields and methods) can be controlled using access modifiers (public, protected, private) defined in the parent class.
+
+Q2 - What is a superclass and subclass ?
+ANS - In Java inheritance, a superclass and subclass are related classes that define a hierarchy:
+
+Superclass (Parent Class):
+
+The original class from which other classes inherit properties and behaviors.
+Represents a more general concept.
+Can have its own fields and methods.
+Can be declared using the extends keyword when creating a subclass.
+Subclass (Child Class):
+
+A class that inherits from a superclass.
+Inherits all non-private members (fields and methods) of the superclass.
+Can have its own additional fields and methods that specialize or extend the inherited behavior.
+Represents a more specific concept that "is-a" type of the superclass.
+
+Q3 - How inheritance is implemented in java ?
+ANS - Syntax - 
+class Subclass extends Superclass {
+  // Subclass members (fields and methods)
+}
+ * Inheritance promotes code reusability and reduces redundancy.
+ * It allows for creating class hierarchies with specialized functionalities. 
+ * Subclasses can extend or modify inherited behavior through method overriding.
+ * Inheritance plays a crucial role in achieving polymorphism for dynamic object behavior.4
+Q4 - What is polymorphism ?
+ANS - One message, many behaviors: Objects of different classes can respond differently to the same method call.
+Runtime magic: The actual method executed depends on the object's type at runtime, not just the reference variable's declared type.
+Inheritance connection: Subclasses often override inherited methods to provide specialized behavior.
+Benefits:
+Flexible code that works with various object types.
+Reusable code through general methods in superclasses.
+Easier maintenance with changes propagating through inheritance.
+Types:
+Method overriding: Subclasses redefine inherited methods.
+Method overloading: Multiple methods with same name but different parameter lists within a class.
+
+Q5 - Difference between overloading and overriding ?
+ANS - Method Overloading :
+
+Definition: Occurs within the same class.
+Purpose: Allows multiple methods to have the same name but different parameter lists (number, type, or order of parameters).
+Functionality: The compiler selects the appropriate method to call based on the arguments provided at runtime
+
+Method Overriding:
+
+Definition: Involves inheritance. A subclass redefines a method inherited from its superclass.
+Purpose: Provides specialized behavior for the inherited method in the subclass.
+Requirement: The method signature (name, parameter list, and return type) must be the same in both the subclass and superclass.
+
+Q6 - Explain abstraction with an example .
+
+ANS - Abstraction in Java is a fundamental concept of object-oriented programming that allows you to focus on the "what" (functionality) without worrying about the "how" (implementation details). It helps create reusable and maintainable code.
+
+//CODE 
+public abstract class Animal {
+  // Abstract method - doesn't have a body, subclasses must implement it
+  public abstract void makeSound();
+
+  public void sleep() {
+    System.out.println("Animal is sleeping");
+  }
+}
+
+class Dog extends Animal {
+  @Override
+  public void makeSound() {
+    System.out.println("Woof!");
+  }
+}
+
+class Cat extends Animal {
+  @Override
+  public void makeSound() {
+    System.out.println("Meow!");
+  }
+}
+
+Q7 - What is difference between abstract and final methods . Give an example.
+
+ANS - Abstract Methods:
+
+Definition: Declared with the abstract keyword.
+Implementation: Don't have a body (curly braces {}).
+Purpose: Force subclasses to provide their own implementation for the method.
+Inheritance: Used in abstract classes to define functionality that subclasses must implement.
+Final Methods:
+
+Definition: Declared with the final keyword.
+Implementation: Must have a body and cannot be overridden in subclasses.
+Purpose: Prevent subclasses from changing the behavior of a method.
+Inheritance: Used in base classes to define methods with a fixed implementation that cannot be altered by subclasses.
+//CODE
+
+abstract class Shape {
+  // Abstract method - subclass must implement
+  public abstract double getArea();
+
+  // Final method - cannot be overridden
+  public final String getName() {
+    return "Shape";
+  }
+}
+
+class Circle extends Shape {
+  @Override
+  public double getArea() {
+    // Implement area calculation for circle
+    return Math.PI * radius * radius;
+  }
+}
+
+Q8 - What is Final class in java ? 
+
+ANS -  A final class in Java is a class that cannot be extended (inherited from) by other classes. It's declared using the final keyword before the class definition. Here's a breakdown of its characteristics and use cases:
+
+Key Points:
+
+No Inheritance: Once a class is declared final, it becomes the end of the inheritance line. No other class can inherit from it.
+Purpose: This is useful for several reasons:
+Encapsulating Core Functionality: You can mark core system classes (e.g., String, Math) as final to prevent unintended modifications and ensure consistent behavior.
+Security: Final classes prevent unauthorized subclasses from altering their behavior, which can be important for security-sensitive classes.
+Immutability: Final classes can be used to create immutable objects, meaning their state cannot be changed after creation. This can improve thread safety and simplify reasoning about object behavior.
+
+Q9 - Differentiate between abstraction and encapsulation ? 
+ANS - Abstraction:
+
+Focus: Hides the implementation details of a concept and exposes only the essential functionalities.
+Mechanism: Achieved through abstract classes and interfaces.
+Purpose: Simplifies code by focusing on "what" an object can do, not "how" it does it.
+Benefits:
+Improves code readability and maintainability.
+Promotes code reusability by separating behavior from implementation.
+Enables polymorphism for flexible object behavior.
+Encapsulation:
+
+Focus: Bundling data (fields) and methods that operate on that data together within a single unit (class).
+Mechanism: Achieved through access modifiers (public, protected, private) to control access to data members.
+Purpose: Protects data integrity by controlling how it can be accessed and modified.
+Benefits:
+Improves data security and integrity.
+Promotes modularity and reduces coupling between code parts.
+Allows for controlled modification of data through methods.
+
+Q10 - Difference between compile and run-time polymorphism with an example .
+
+ANS - Key Points (Compile-Time Polymorphism):
+
+Resolved at compile time.
+Achieved through method overloading (same method name, different parameter lists).
+Faster execution as the method is chosen beforehand.
+Less flexible as the behavior is determined during compilation.
+Run-Time Polymorphism (Late Binding)
+
+Definition: Occurs during runtime when the actual object type determines the method to be called.
+Mechanism: Achieved through inheritance and method overriding.
+
+//Complie ploy example -
+//code 
+class Calculator {
+  public int add(int a, int b) {
+    return a + b;
+  }
+  public double add(double a, double b) {
+    return a + b;
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    Calculator calc = new Calculator();
+    int sum1 = calc.add(5, 3);  // Compiler knows to call int add(int, int)
+    double sum2 = calc.add(2.5, 1.8); // Compiler knows to call double add(double, double)
+  }
+}
+
+// Runtime poly
+//code
+class Animal {
+  public void makeSound() {
+    System.out.println("Generic animal sound");
+  }
+}
+
+class Dog extends Animal {
+  @Override
+  public void makeSound() {
+    System.out.println("Woof!");
+  }
+}
+
+class Cat extends Animal {
+  @Override
+  public void makeSound() {
+    System.out.println("Meow!");
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    Animal animal1 = new Dog(); // Upcasting - Dog object referenced as Animal
+    Animal animal2 = new Cat();
+
+    animal1.makeSound(); // Output: Woof! (Dog's implementation at runtime)
+    animal2.makeSound(); // Output: Meow! (Cat's implementation at runtime)
+  }
+}
